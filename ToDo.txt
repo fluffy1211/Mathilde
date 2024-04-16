@@ -1,0 +1,8 @@
+Site API qui liste les chats et leurs caractéristiques
+
+Dossier "Pour Mathilde" dans mes favoris avec l'API et un tuto
+
+Mettre la tête de Mathilde en icône du Site
+Emettre un son meow quand on clique sur un bouton
+S'inspirer d'autres sites
+Faire une partie juste pour Persée et Cassio
