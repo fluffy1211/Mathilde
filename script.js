@@ -2,15 +2,20 @@ const page = document.querySelector('.page');
 const searchbtn = document.querySelector('.search-btn');
 const searchinput = document.querySelector('.search-input');
 const audio = new Audio('./assets/cat-meow.mp3');
+const persee = new Audio('./assets/persee-goat.ogg');
+const cassio = new Audio('./assets/cassio-goat.ogg');
+
 
 
 key = "live_ZbvoahPlQP8h4FWrU5YaIyDZ3NHVJDrWdOoucgP9Ri8NSl9tAJjZf3tAAKpLVr5Z"
 
 searchbtn.addEventListener('click', () => {
-    audio.play(); // Move the audio.play() line here
+    console.log(searchinput.value);
+    console.log(searchinput.value === 'persée', 'Persée');
     page.innerHTML = ''; // Clear the content on the page
 
     if (searchinput.value === 'persée', 'Persée') {
+        persee.play();
         const breedInfoElement = document.createElement('div');
         breedInfoElement.innerHTML = `
         <div class="cards">
@@ -25,6 +30,7 @@ searchbtn.addEventListener('click', () => {
         page.appendChild(breedInfoElement);
 
     } else if (searchinput.value === 'cassio', 'Cassio') {
+        cassio.play();
         const breedInfoElement = document.createElement('div');
         breedInfoElement.innerHTML = `
         <div class="cards">
@@ -44,6 +50,7 @@ searchbtn.addEventListener('click', () => {
         .then(response => response.data)
         .then(response => {
             // Process the response and display the cat breed information
+            audio.play();
             const breedInfo = response[0]; // Assuming the API returns an array of breed information
             const breedName = breedInfo.name;
             const breedDescription = breedInfo.description;
