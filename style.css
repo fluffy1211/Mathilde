@@ -1,7 +1,11 @@
 /* WEB PAGE */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 html {
     scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -37,6 +41,7 @@ a {
     cursor: pointer;
     margin-left: 10px;
     border: 1px solid rgb(53, 53, 53);
+    
 }
 
 .search-input {
@@ -45,6 +50,9 @@ a {
     padding : 6px;
     border-radius: 10px;
     border: 1px solid rgb(53, 53, 53);
+    height: 20px;
+    width: 10rem;
+
     }
 
 .center {

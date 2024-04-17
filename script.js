@@ -11,10 +11,9 @@ key = "live_ZbvoahPlQP8h4FWrU5YaIyDZ3NHVJDrWdOoucgP9Ri8NSl9tAJjZf3tAAKpLVr5Z"
 
 searchbtn.addEventListener('click', () => {
     console.log(searchinput.value);
-    console.log(searchinput.value === 'persée', 'Persée');
     page.innerHTML = ''; // Clear the content on the page
 
-    if (searchinput.value === 'persée', 'Persée') {
+    if (searchinput.value.toLowerCase() === 'persée' || searchinput.value === 'Persée') {
         persee.play();
         const breedInfoElement = document.createElement('div');
         breedInfoElement.innerHTML = `
@@ -26,10 +25,9 @@ searchbtn.addEventListener('click', () => {
             <img class="catimg" src="./assets/persee.jpg" alt="Persée Image">
         </div>
         `;
-
         page.appendChild(breedInfoElement);
 
-    } else if (searchinput.value === 'cassio', 'Cassio') {
+    } else if (searchinput.value.toLowerCase() === 'cassio' || searchinput.value === 'Cassio') {
         cassio.play();
         const breedInfoElement = document.createElement('div');
         breedInfoElement.innerHTML = `
@@ -41,40 +39,35 @@ searchbtn.addEventListener('click', () => {
             <img class="catimg" src="./assets/cassio.jpg" alt="Cassio Image">
         </div>
         `;
-
         page.appendChild(breedInfoElement);
 
     } else {
-    
-    axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${searchinput.value}&api_key=${key}`)
-        .then(response => response.data)
-        .then(response => {
-            // Process the response and display the cat breed information
-            audio.play();
-            const breedInfo = response[0]; // Assuming the API returns an array of breed information
-            const breedName = breedInfo.name;
-            const breedDescription = breedInfo.description;
-            const breedImageURL = breedInfo.image.url; // Assuming the API provides the image URL
-            const breedDogFriendly = breedInfo.dog_friendly; // New: Dog friendly information
-            const breedAffectionLevel = breedInfo.affection_level; // New: Affection level information
-            
-            const breedInfoElement = document.createElement('div');
-            breedInfoElement.innerHTML = `
-            <div class="cards">
-                <h2 class="catname">${breedName}</h2>
-                <p class="catdesc">${breedDescription}</p>
-                <p class="dogfriendly">Dog Friendly: ${breedDogFriendly}</p>
-                <p class="affectionlevel">Affection Level: ${breedAffectionLevel}</p>
-                <img class="catimg" src="${breedImageURL}" alt="${breedName} Image">
-            </div>
-            `;
-            
-            page.appendChild(breedInfoElement);
-        })
-        .catch(error => {
-            // Handle any errors that occur during the API request
-            console.error(error);
-        });
+        axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${searchinput.value}&api_key=${key}`)
+            .then(response => response.data)
+            .then(response => {
+                audio.play();
+                const breedInfo = response[0];
+                const breedName = breedInfo.name;
+                const breedDescription = breedInfo.description;
+                const breedImageURL = breedInfo.image.url;
+                const breedDogFriendly = breedInfo.dog_friendly;
+                const breedAffectionLevel = breedInfo.affection_level;
+
+                const breedInfoElement = document.createElement('div');
+                breedInfoElement.innerHTML = `
+                <div class="cards">
+                    <h2 class="catname">${breedName}</h2>
+                    <p class="catdesc">${breedDescription}</p>
+                    <p class="dogfriendly">Dog Friendly: ${breedDogFriendly}</p>
+                    <p class="affectionlevel">Affection Level: ${breedAffectionLevel}</p>
+                    <img class="catimg" src="${breedImageURL}" alt="${breedName} Image">
+                </div>
+                `;
+                page.appendChild(breedInfoElement);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 });
 
