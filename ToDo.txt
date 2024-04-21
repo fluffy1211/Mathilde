@@ -2,8 +2,16 @@ Site API qui liste les chats et leurs caractéristiques
 
 Dossier "Pour Mathilde" dans mes favoris avec l'API et un tuto
 
+Fond du site beige et mettre des pattes de chat un peu partout
+Fade in sur l'image et le texte qui arrive grâce à animate Css
+Mettre des anecdotes sur les chats de mathilde
 Emettre un son meow quand on clique sur un bouton
 S'inspirer d'autres sites
 Faire une partie juste pour Persée et Cassio
 Quand on cherche précisemment "Cassio" et "Persée" on a des infos sur eux avec leur image
 Bouton caché qui ramène sur un truc genre une photo de mathilde avec des coeurs et une musique qui se lance
+
+Header avec une barre de recherche et une petite animation
+Un burger menu avec des sections (encyclopédie, cassio persée sushi)
+
+infos en grid()

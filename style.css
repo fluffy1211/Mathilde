@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    /* background-color: rgb(246, 157, 252); */
+    background-color: #D5B895  ;
     }
 
 
@@ -94,4 +94,8 @@ p {
     height: auto;
     right: 5rem;
     bottom: 5rem;
+}
+
+.animate__animated {
+    animation-duration: 1s;
 }
